@@ -2996,3 +2996,17 @@ tr:hover td {
         font-size: 0.9rem;
     }
 }
+/* keep this for all section titles (FAQ, etc.) */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;  /* default spacing */
+}
+
+/* extra gap only above the contact form */
+#contact .section-title {
+  margin-bottom: 56px;   /* tweak 48–64px until it looks right */
+}
+
