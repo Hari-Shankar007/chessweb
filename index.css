@@ -3004,16 +3004,27 @@ tr:hover td {
   margin-bottom: 24px;
 }
 
+/* Optional: remove horizontal scrolling approach */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto;
-  margin: 1rem 0;
+  overflow-x: visible;   /* or just delete overflow-x */
 }
 
-/* Optional: keep Markdown tables readable */
-.table-wrapper table {
-  min-width: 480px;   /* adjust or remove if you like */
+/* Let cells wrap so the table shrinks to screen width */
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1f2937;
+  text-align: left;
+  white-space: normal;   /* <— allow wrapping instead of one long line */
+  word-break: break-word;/* <— break long URLs/words */
+}
+
 a {
   color: #38bdf8;        /* brighter blue on dark background */
   text-decoration: none;
@@ -3024,6 +3035,7 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
 
 
 
