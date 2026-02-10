@@ -3004,5 +3004,26 @@ tr:hover td {
   margin-bottom: 24px;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* Optional: keep Markdown tables readable */
+.table-wrapper table {
+  min-width: 480px;   /* adjust or remove if you like */
+}
+a {
+  color: #38bdf8;        /* brighter blue on dark background */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
 
 
