@@ -3004,17 +3004,30 @@ tr:hover td {
   margin-bottom: 24px;
 }
 
-/* smaller text just inside data tables */
+/* Container – keeps layout tidy but no forced horizontal scroll */
+.table-wrapper {
+  width: 100%;
+  overflow-x: hidden;   /* or remove this line */
+  margin: 1rem 0;
+}
+
+/* Core table layout */
 .table-wrapper table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;      /* tweak: 0.8–0.9rem */
+  font-size: 0.85rem;        /* smaller to help fit */
 }
 
+/* Cells: allow wrapping, don't cut words mid‑letter */
 .table-wrapper th,
 .table-wrapper td {
-  padding: 6px 8px;        /* slightly tighter padding */
-  white-space: nowrap;     /* keep each cell on one line */
+  padding: 8px 10px;
+  border-bottom: 1px solid #1f2937;
+  text-align: left;
+
+  white-space: normal;       /* allow multiple lines */
+  word-break: normal;        /* don’t break inside long words */
+  overflow-wrap: anywhere;   /* wrap at spaces, hyphens, slashes, etc. */
 }
 
 
@@ -3028,6 +3041,7 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
 
 
 
