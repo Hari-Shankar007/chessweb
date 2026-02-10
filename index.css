@@ -3004,31 +3004,46 @@ tr:hover td {
   margin-bottom: 24px;
 }
 
-/* Container – keeps layout tidy but no forced horizontal scroll */
+/* BLOG TABLES – clean mobile layout */
 .table-wrapper {
   width: 100%;
-  overflow-x: hidden;   /* or remove this line */
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
-/* Core table layout */
+/* core table */
 .table-wrapper table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;        /* smaller to help fit */
+  font-size: 0.85rem;          /* small enough to fit */
 }
 
-/* Cells: allow wrapping, don't cut words mid‑letter */
+/* header + cells */
 .table-wrapper th,
 .table-wrapper td {
   padding: 8px 10px;
   border-bottom: 1px solid #1f2937;
   text-align: left;
 
-  white-space: normal;       /* allow multiple lines */
-  word-break: normal;        /* don’t break inside long words */
-  overflow-wrap: anywhere;   /* wrap at spaces, hyphens, slashes, etc. */
+  /* KEY PARTS */
+  white-space: normal;         /* allow multiple lines */
+  word-break: keep-all;        /* don’t break inside words */
+  overflow-wrap: break-word;   /* wrap only at spaces, hyphens, slashes */
 }
+
+/* optional: narrower first column so URL + Best For get more space */
+.table-wrapper th:first-child,
+.table-wrapper td:first-child {
+  width: 24%;
+}
+.table-wrapper th:nth-child(2),
+.table-wrapper td:nth-child(2) {
+  width: 28%;
+}
+.table-wrapper th:nth-child(3),
+.table-wrapper td:nth-child(3) {
+  width: 48%;
+}
+
 
 
 a {
@@ -3041,6 +3056,7 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
 
 
 
