@@ -805,7 +805,10 @@ if (chessSection && chessboard) {
    SECTION REVEAL ON SCROLL
    ========================================= */
 (function initSectionReveal() {
-    const sections = document.querySelectorAll('.section');
+    // Only apply reveal animation to sections that have the 'reveal' class
+    // This prevents non-homepage pages (blog, leaderboard, youtube, blog posts)
+    // from having their content hidden by opacity:0
+    const sections = document.querySelectorAll('.section.reveal');
     
     const revealSection = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -815,13 +818,24 @@ if (chessSection && chessboard) {
             }
         });
     }, {
-        threshold: 0.15
+        threshold: 0.1
     });
     
     sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        // Check if the section is already in the viewport (e.g. near top of page)
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+            // Already visible, show immediately
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+            section.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        } else {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }
         revealSection.observe(section);
     });
     
