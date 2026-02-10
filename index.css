@@ -3004,26 +3004,19 @@ tr:hover td {
   margin-bottom: 24px;
 }
 
-/* Optional: remove horizontal scrolling approach */
-.table-wrapper {
-  width: 100%;
-  overflow-x: visible;   /* or just delete overflow-x */
-}
-
-/* Let cells wrap so the table shrinks to screen width */
-table {
+/* smaller text just inside data tables */
+.table-wrapper table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 0.85rem;      /* tweak: 0.8–0.9rem */
 }
 
-th,
-td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #1f2937;
-  text-align: left;
-  white-space: normal;   /* <— allow wrapping instead of one long line */
-  word-break: break-word;/* <— break long URLs/words */
+.table-wrapper th,
+.table-wrapper td {
+  padding: 6px 8px;        /* slightly tighter padding */
+  white-space: nowrap;     /* keep each cell on one line */
 }
+
 
 a {
   color: #38bdf8;        /* brighter blue on dark background */
@@ -3035,6 +3028,7 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
 
 
 
