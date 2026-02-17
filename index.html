@@ -405,26 +405,42 @@
 
     // Nav Toggle is handled in index.js - removed duplicate handler
 
-    // Gallery Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item img');
+// Gallery Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item img');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.dataset.filter;
-            
-            galleryItems.forEach(img => {
-                const parent = img.parentElement;
-                if (filter === 'all' || img.dataset.cat === filter) {
-                    parent.style.display = 'block';
-                } else {
-                    parent.style.display = 'none';
-                }
-            });
+// Set default filter to 'training' on page load
+galleryItems.forEach(img => {
+    const parent = img.parentElement;
+    if (img.dataset.cat !== 'training') {
+        parent.style.display = 'none';
+    }
+});
+
+// Add active class to training button by default
+filterBtns.forEach(btn => {
+    if (btn.dataset.filter === 'training') {
+        btn.classList.add('active');
+    }
+});
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        
+        galleryItems.forEach(img => {
+            const parent = img.parentElement;
+            if (filter === 'all' || img.dataset.cat === filter) {
+                parent.style.display = 'block';
+            } else {
+                parent.style.display = 'none';
+            }
         });
     });
+});
+
 
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -509,6 +525,7 @@
   </script>
 </body>
 </html>
+
 
 
 
