@@ -261,12 +261,12 @@
         <p class="lead center">Choose the perfect plan for your chess journey.</p>
         
         <div class="toggle-container">
-          <div class="toggle" id="priceToggle">
-            <button data-mode="beginner" class="active">Beginner</button>
-            <button data-mode="intermidiate">Intermidiate</button>
-            <button data-mode="advanced">Advanced</button>
-           
-          </div>
+         <div class="toggle" id="priceToggle">
+  <button data-mode="beginner" class="active">Beginner</button>
+  <button data-mode="intermidiate">Intermidiate</button>
+  <button data-mode="advanced">Advanced</button>
+</div>
+
         </div>
 
         <div class="grid grid-3">
@@ -582,24 +582,32 @@ filterBtns.forEach(btn => {
     });
 
     // Pricing Toggle
-    const priceToggle = document.getElementById('priceToggle');
-    const priceAmounts = document.querySelectorAll('.price-amount');
-    
-    if(priceToggle) {
-        priceToggle.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                priceToggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const mode = btn.dataset.mode;
-                
-                priceAmounts.forEach(price => {
-                   const val = price.getAttribute('data-' + mode);
-                   price.innerHTML = val + `<span>/${mode === 'hour' ? 'hr' : 'mo'}</span>`;
-                });
-            });
-        });
-    }
+ const priceToggle = document.getElementById('priceToggle');
+const priceAmounts = document.querySelectorAll('.price-amount');
 
+if (priceToggle) {
+  const buttons = priceToggle.querySelectorAll('button');
+
+  function updatePrices(mode) {
+    priceAmounts.forEach(price => {
+      const val = price.getAttribute('data-' + mode);
+      price.innerHTML = `${val}<span>/hr</span>`;
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePrices(btn.dataset.mode);
+    });
+  });
+
+  const defaultBtn = priceToggle.querySelector('button.active');
+  if (defaultBtn) {
+    updatePrices(defaultBtn.dataset.mode);
+  }
+}
     // Chat
     const chatToggle = document.getElementById('chat-toggle');
     const chatContainer = document.getElementById('chat-container');
