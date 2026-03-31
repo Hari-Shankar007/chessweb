@@ -176,8 +176,8 @@
             <td>#${player.rank}</td>
             <td style="font-weight:600; color:var(--text-primary);">${player.player}</td>
             <td>${player.rating}</td>
-            <td style="color:var(--primary);">${player.wins}</td>
-            <td style="color:var(--text-secondary);">${player.losses}</td>
+            <td style="color:var(--primary);">${player.points}</td>
+           
         `;
             tbody.appendChild(row);
         });
@@ -185,7 +185,7 @@
     populateLeaderboard();
 
     window.sortTable = (column) => {
-        const keys = ['rank', 'player', 'rating', 'wins', 'losses'];
+        const keys = ['rank', 'player', 'rating', 'points'];
         const key = keys[column];
 
         leaderboardData.sort((a, b) => {
