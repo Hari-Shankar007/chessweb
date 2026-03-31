@@ -58,8 +58,8 @@
                   <th onclick="sortTable(0)" style="cursor:pointer">Rank ↕</th>
                   <th onclick="sortTable(1)" style="cursor:pointer">Player ↕</th>
                   <th onclick="sortTable(2)" style="cursor:pointer">Rating ↕</th>
-                  <th onclick="sortTable(3)" style="cursor:pointer">Wins ↕</th>
-                  <th onclick="sortTable(4)" style="cursor:pointer">Losses ↕</th>
+                  <th onclick="sortTable(3)" style="cursor:pointer">Points ↕</th>
+                 
                 </tr>
               </thead>
               <tbody id="leaderboardBody">
@@ -154,18 +154,18 @@
   <script src="index.js"></script>
   <script>
     /* === LEADERBOARD FUNCTIONALITY === */
-    const leaderboardData = [
-        { rank: 1, player: 'Magnus Carlsen', rating: 2847, wins: 42, losses: 3 },
-        { rank: 2, player: 'Hikaru Nakamura', rating: 2829, wins: 38, losses: 7 },
-        { rank: 3, player: 'Fabiano Caruana', rating: 2806, wins: 35, losses: 5 },
-        { rank: 4, player: 'Alice Johnson', rating: 2156, wins: 28, losses: 12 },
-        { rank: 5, player: 'Bob Smith', rating: 1987, wins: 24, losses: 16 },
-        { rank: 6, player: 'Carol Davis', rating: 1876, wins: 22, losses: 18 },
-        { rank: 7, player: 'David Wilson', rating: 1754, wins: 19, losses: 21 },
-        { rank: 8, player: 'Emma Brown', rating: 1698, wins: 17, losses: 23 },
-        { rank: 9, player: 'Aswin Kumar', rating: 1654, wins: 16, losses: 23 },
-        { rank: 10, player: 'Vishal', rating: 1598, wins: 15, losses: 25 }
-    ];
+ const leaderboardData = [
+    { rank: 1, player: 'sachinspujeri', rating: 1928, points: 12 },
+    { rank: 2, player: 'prabhakarsb', rating: 1448, points: 6 },
+    { rank: 3, player: 'sadek_mia2023', rating: 1502, points: 6 },
+    { rank: 4, player: 'MateByRajat', rating: 1931, points: 4 },
+    { rank: 5, player: 'luckyduck99 🐥', rating: 1669, points: 4 },
+    { rank: 6, player: 'RaniduSSCK', rating: 1038, points: 2 },
+    { rank: 7, player: 'Aswath15', rating: 1350, points: 0 },
+    { rank: 8, player: 'aswinkumar61358', rating: 1296, points: 0 },
+    { rank: 9, player: 'Bunk3d', rating: 706, points: 0 }
+];
+
 
     function populateLeaderboard() {
         const tbody = document.getElementById('leaderboardBody');
