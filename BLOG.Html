@@ -330,6 +330,83 @@
                 this.dispatchEvent(new Event('input'));
             }
         });
+  // Blog Pagination
+        (function initBlogPagination() {
+            const itemsPerPage = 6;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageInfo = document.getElementById('pageInfo');
+            const allItems = Array.from(blogItems);
+            let currentPage = 1;
+
+            function getVisibleItems() {
+                // If search is active, only paginate visible (matching) items
+                const searchTerm = blogSearch.value.toLowerCase().trim();
+                if (searchTerm) {
+                    return allItems.filter(item => {
+                        const title = item.querySelector('h2').textContent.toLowerCase();
+                        const excerpt = item.querySelector('.excerpt').textContent.toLowerCase();
+                        const date = item.querySelector('.date').textContent.toLowerCase();
+                        return title.includes(searchTerm) || excerpt.includes(searchTerm) || date.includes(searchTerm);
+                    });
+                }
+                return allItems;
+            }
+
+            function renderPage() {
+                const visibleItems = getVisibleItems();
+                const totalPages = Math.max(1, Math.ceil(visibleItems.length / itemsPerPage));
+
+                // Clamp current page
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                // Hide all items first
+                allItems.forEach(item => item.style.display = 'none');
+
+                // Show only items for current page
+                visibleItems.forEach((item, index) => {
+                    if (index >= start && index < end) {
+                        item.style.display = '';
+                    }
+                });
+
+                // Update pagination controls
+                pageInfo.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+                prevBtn.disabled = currentPage <= 1;
+                nextBtn.disabled = currentPage >= totalPages;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                const visibleItems = getVisibleItems();
+                const totalPages = Math.ceil(visibleItems.length / itemsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage();
+                }
+            });
+
+            // Re-render pagination when search changes
+            blogSearch.addEventListener('input', function() {
+                currentPage = 1;
+                // Let the search filter run first (already bound above), then paginate
+                setTimeout(renderPage, 10);
+            });
+
+            // Initial render
+            renderPage();
+        })();
+
     </script>
 </body>
 
