@@ -491,10 +491,10 @@
         </div>
     </footer>
 
-<a href="https://wa.me/919633896415" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-</a>
+    <a href="https://wa.me/919633896415" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
+    </a>
 
-<script src="../index.js"></script>
+    <script src="../index.js"></script>
 </body>
 </html>
