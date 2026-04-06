@@ -134,427 +134,9 @@
   }
   </script>
 
-  <!-- ── Fonts ── -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <style>
-    /* ── CSS Variables ── */
-    :root {
-      --bg:          #0e0f0f;
-      --bg-card:     #161818;
-      --bg-aside:    #111313;
-      --border:      #272b2b;
-      --gold:        #c9a84c;
-      --gold-light:  #e4c47a;
-      --cream:       #f0ece2;
-      --muted:       #7a8080;
-      --accent-red:  #c44e3a;
-      --text:        #ddd9ce;
-      --text-dim:    #9a968c;
-      --ff-display:  'Playfair Display', Georgia, serif;
-      --ff-body:     'Source Serif 4', Georgia, serif;
-      --ff-mono:     'JetBrains Mono', monospace;
-      --radius:      6px;
-      --max-w:       780px;
-    }
 
-    /* ── Reset ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 1.0625rem;
-      line-height: 1.78;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: var(--gold); text-decoration: none; transition: color .2s; }
-    a:hover { color: var(--gold-light); text-decoration: underline; }
 
-    /* ── Skip Link ── */
-    .skip-link {
-      position: absolute; top: -9999px; left: 1rem;
-      background: var(--gold); color: #000; padding: .4rem .8rem;
-      border-radius: var(--radius); font-size: .875rem; z-index: 999;
-    }
-    .skip-link:focus { top: 1rem; }
-
-    /* ── Site Header ── */
-    .site-header {
-      border-bottom: 1px solid var(--border);
-      background: #0a0b0b;
-      position: sticky; top: 0; z-index: 100;
-    }
-    .site-header__inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: .9rem 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .site-logo {
-      font-family: var(--ff-display);
-      font-size: 1.15rem;
-      color: var(--gold);
-      letter-spacing: .03em;
-    }
-    .site-logo span { color: var(--cream); }
-    .site-nav a {
-      margin-left: 1.5rem;
-      font-size: .875rem;
-      color: var(--text-dim);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .site-nav a:hover { color: var(--gold); text-decoration: none; }
-
-    /* ── Breadcrumb ── */
-    .breadcrumb {
-      max-width: var(--max-w); margin: 1.6rem auto 0;
-      padding: 0 1.5rem;
-      font-size: .8125rem;
-      color: var(--muted);
-      display: flex; flex-wrap: wrap; gap: .25rem .4rem;
-    }
-    .breadcrumb a { color: var(--muted); }
-    .breadcrumb a:hover { color: var(--gold); text-decoration: none; }
-    .breadcrumb span::before { content: '›'; margin-right: .4rem; }
-
-    /* ── Article Layout ── */
-    .article-wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 2rem 1.5rem 5rem;
-    }
-
-    /* ── Hero ── */
-    .article-hero { margin-bottom: 2.8rem; }
-    .article-category {
-      display: inline-block;
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: .25rem .7rem;
-      border-radius: 2px;
-      margin-bottom: 1.2rem;
-    }
-    .article-title {
-      font-family: var(--ff-display);
-      font-size: clamp(1.95rem, 5vw, 2.9rem);
-      font-weight: 900;
-      line-height: 1.18;
-      color: var(--cream);
-      margin-bottom: 1.2rem;
-    }
-    .article-title em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-    .article-subtitle {
-      font-size: 1.0625rem;
-      color: var(--text-dim);
-      max-width: 640px;
-      line-height: 1.65;
-      margin-bottom: 1.6rem;
-    }
-    .article-meta {
-      display: flex; flex-wrap: wrap; gap: .6rem 1.4rem;
-      font-size: .8125rem;
-      color: var(--muted);
-      font-family: var(--ff-mono);
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-    }
-    .article-meta strong { color: var(--text-dim); }
-
-    /* ── Quick Answer Box ── */
-    .quick-answer {
-      background: var(--bg-card);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1.2rem 1.5rem;
-      margin: 2rem 0 2.4rem;
-    }
-    .quick-answer__label {
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: .5rem;
-    }
-    .quick-answer p { font-size: .9375rem; color: var(--text-dim); line-height: 1.7; }
-
-    /* ── Prose ── */
-    .prose h2 {
-      font-family: var(--ff-display);
-      font-size: clamp(1.35rem, 3.5vw, 1.7rem);
-      font-weight: 700;
-      color: var(--cream);
-      margin: 3rem 0 1rem;
-      padding-bottom: .6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .prose h3 {
-      font-family: var(--ff-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin: 2.2rem 0 .7rem;
-    }
-    .prose p { margin-bottom: 1.15rem; }
-    .prose ul, .prose ol {
-      padding-left: 1.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .prose li { margin-bottom: .45rem; }
-    .prose strong { color: var(--cream); font-weight: 600; }
-    .prose em { font-style: italic; }
-    .prose a { border-bottom: 1px solid rgba(201,168,76,.35); }
-    .prose a:hover { border-bottom-color: var(--gold); text-decoration: none; }
-
-    /* ── TOC ── */
-    .toc {
-      background: var(--bg-aside);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.6rem;
-      margin: 0 0 2.8rem;
-    }
-    .toc__title {
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .9rem;
-    }
-    .toc ol {
-      padding-left: 1.2rem;
-      margin: 0;
-    }
-    .toc li { margin-bottom: .3rem; font-size: .9rem; }
-    .toc a { color: var(--text-dim); border-bottom: none; }
-    .toc a:hover { color: var(--gold); }
-
-    /* ── Book Cards ── */
-    .book-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.6rem 1.8rem;
-      margin-bottom: 1.6rem;
-      position: relative;
-      transition: border-color .25s;
-    }
-    .book-card:hover { border-color: rgba(201,168,76,.4); }
-    .book-card__num {
-      position: absolute;
-      top: -1px; left: -1px;
-      background: var(--gold);
-      color: #000;
-      font-family: var(--ff-mono);
-      font-size: .7rem;
-      font-weight: 500;
-      padding: .25rem .6rem;
-      border-radius: var(--radius) 0 var(--radius) 0;
-    }
-    .book-card__title {
-      font-family: var(--ff-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin: 1.4rem 0 .2rem;
-      line-height: 1.3;
-    }
-    .book-card__badge {
-      display: inline-block;
-      font-size: .72rem;
-      font-family: var(--ff-mono);
-      letter-spacing: .06em;
-      color: var(--gold);
-      border: 1px solid rgba(201,168,76,.4);
-      padding: .15rem .55rem;
-      border-radius: 2px;
-      margin-bottom: .9rem;
-    }
-    .book-card h4 {
-      font-size: .8rem;
-      font-family: var(--ff-mono);
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 1rem 0 .3rem;
-    }
-    .book-card p { font-size: .9375rem; color: var(--text-dim); margin-bottom: .5rem; }
-    .book-card .tip {
-      background: rgba(201,168,76,.06);
-      border-left: 2px solid var(--gold);
-      padding: .6rem .9rem;
-      margin-top: .9rem;
-      border-radius: 0 4px 4px 0;
-      font-size: .875rem;
-      color: var(--text-dim);
-    }
-    .book-card .tip strong { color: var(--gold-light); }
-
-    /* ── Steps ── */
-    .steps-list { list-style: none; padding: 0; counter-reset: step; }
-    .steps-list li {
-      counter-increment: step;
-      padding: 1rem 1rem 1rem 4rem;
-      position: relative;
-      border-left: 2px solid var(--border);
-      margin-left: 1.2rem;
-      margin-bottom: .6rem;
-      font-size: .9375rem;
-      color: var(--text-dim);
-    }
-    .steps-list li::before {
-      content: counter(step);
-      position: absolute;
-      left: -1.35rem; top: .85rem;
-      width: 2.4rem; height: 2.4rem;
-      background: var(--gold);
-      color: #000;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--ff-mono);
-      font-size: .8rem;
-      font-weight: 500;
-    }
-    .steps-list li strong { color: var(--cream); display: block; margin-bottom: .2rem; }
-
-    /* ── Checklist ── */
-    .checklist { list-style: none; padding: 0; }
-    .checklist li {
-      padding: .5rem 0 .5rem 2rem;
-      position: relative;
-      font-size: .9375rem;
-      color: var(--text-dim);
-      border-bottom: 1px solid rgba(39,43,43,.6);
-    }
-    .checklist li::before {
-      content: '✓';
-      position: absolute; left: 0;
-      color: var(--gold);
-      font-size: .85rem;
-    }
-    .checklist li strong { color: var(--cream); }
-
-    /* ── Pillar Blocks ── */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 1.4rem 0 1.8rem;
-    }
-    .pillar {
-      background: var(--bg-aside);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.2rem;
-    }
-    .pillar__icon { font-size: 1.4rem; margin-bottom: .4rem; }
-    .pillar__name { font-size: .8rem; font-family: var(--ff-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
-    .pillar p { font-size: .875rem; color: var(--text-dim); margin: 0; }
-
-    /* ── FAQ ── */
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 1.2rem 0;
-    }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      font-family: var(--ff-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: .55rem;
-    }
-    .faq-a { font-size: .9375rem; color: var(--text-dim); }
-
-    /* ── CTA ── */
-    .cta-box {
-      background: linear-gradient(135deg, #1a1509 0%, #191310 100%);
-      border: 1px solid rgba(201,168,76,.35);
-      border-radius: var(--radius);
-      padding: 2rem 2rem 2.2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .cta-box h3 {
-      font-family: var(--ff-display);
-      font-size: 1.4rem;
-      color: var(--cream);
-      margin-bottom: .6rem;
-    }
-    .cta-box p { color: var(--text-dim); font-size: .9375rem; margin-bottom: 1.4rem; }
-    .cta-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: #000;
-      font-family: var(--ff-mono);
-      font-size: .8rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: .75rem 1.8rem;
-      border-radius: var(--radius);
-      transition: background .2s, transform .15s;
-    }
-    .cta-btn:hover {
-      background: var(--gold-light);
-      text-decoration: none;
-      transform: translateY(-1px);
-      color: #000;
-    }
-
-    /* ── Footer ── */
-    .site-footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      font-size: .8125rem;
-      color: var(--muted);
-    }
-    .site-footer a { color: var(--muted); }
-    .site-footer a:hover { color: var(--gold); text-decoration: none; }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .site-nav { display: none; }
-      .article-title { font-size: 1.75rem; }
-      .book-card { padding: 1.3rem 1.2rem; }
-      .pillars { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <!-- ── Site Header ── -->
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="https://educhesstrivandrum.com/" class="site-logo" aria-label="EDUCHESS Academy Home">
-        EDU<span>CHESS</span>
-      </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="https://educhesstrivandrum.com/">Home</a>
-        <a href="https://educhesstrivandrum.com/blog/">Blog</a>
-        <a href="https://educhesstrivandrum.com/#classes">Classes</a>
-        <a href="https://educhesstrivandrum.com/#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
   <!-- ── Breadcrumb ── -->
   <nav aria-label="Breadcrumb">
@@ -574,40 +156,87 @@
     </ol>
   </nav>
 
-  <!-- ── Main Article ── -->
-  <main id="main-content">
-    <div class="article-wrap">
-      <article itemscope itemtype="https://schema.org/Article">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">EDU<span>CHESS</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="nav-links">
+      <button class="nav-close" aria-label="Close navigation">✕</button>
+      <a href="../index.html#coaching">Coaching</a>
 
-        <!-- Hero -->
-        <header class="article-hero">
-          <span class="article-category">Chess Learning</span>
-          <h1 class="article-title" itemprop="headline">
-            Top 10 Chess Books for Beginners:<br>
-            <em>Simple Choices That Actually Help You Improve</em>
+      <div class="dropdown">
+        <button class="dropbtn">Community ▾</button>
+        <div class="dropdown-content">
+          <a href="../leaderboard.html">Leaderboard</a>
+          <a href="../index.html#gallery">Gallery</a>
+          <a href="../BLOG.Html" class="active">Blog</a>
+          <a href="../youtube.html">YouTube</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Company ▾</button>
+        <div class="dropdown-content">
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#faqs">FAQs</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </div>
+
+      <a href="../index.html#book" class="nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-top:120px;">
+    <div class="container" style="max-width: 900px;">
+
+      <!-- Breadcrumb Navigation -->
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="../index.html">Home</a> >
+        <a href="../BLOG.Html">Blog</a> >
+        <span>FIDE Candidates Tournament 2026 in Cyprus</span>
+      </nav>
+
+      <a href="../BLOG.Html" class="back-btn">← Back to Blog</a>
+
+      <article class="blog-post" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-image">
+          <img
+            src="../images/fide candidates.png"
+            alt="Playing hall at the FIDE Candidates Tournament 2026 in Cyprus"
+            itemprop="image"
+            loading="eager">
+        </div>
+
+        <div class="blog-header">
+          <h1 itemprop="headline">
+            FIDE Candidates Tournament 2026 in Cyprus: Everything You Need to Know
           </h1>
-          <p class="article-subtitle" itemprop="description">
-            A curated guide to the best beginner chess books — covering tactics, strategy, endgames and puzzle habits — with plain-language explanations and study tips from EDUCHESS Academy, Trivandrum.
-          </p>
-          <div class="article-meta">
-            <span><strong>By</strong> EDUCHESS Academy</span>
-            <span><strong>Published</strong> <time datetime="2025-04-06" itemprop="datePublished">April 6, 2025</time></span>
-            <span><strong>Level</strong> 0 – 1400 rated</span>
-            <span><strong>Read time</strong> ~12 min</span>
+          <div class="blog-meta">
+            <span itemprop="datePublished" content="2026-04-05">📅 05/04/2026</span>
+            <span>•</span>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">EDUCHESS Team</span>
+            </span>
           </div>
-        </header>
+        </div>
+            <div class="blog-content" itemprop="articleBody">
 
-        <div class="prose" itemprop="articleBody">
 
           <!-- Quick Answer -->
-          <div class="quick-answer" role="note" aria-label="Quick Answer">
             <span class="quick-answer__label">Quick Answer</span>
             <p>Looking for the best chess books for beginners? This guide lists the top 10 beginner-friendly titles — covering tactics, strategy, endgames and puzzle habits — so new players and parents can make a smart choice. Each book is explained in plain language with a simple study tip.
             <a href="https://educhesstrivandrum.com/">EDUCHESS Academy</a> encourages every student to combine books with live coaching and online practice, because books build the thinking habits that make real improvement stick.</p>
           </div>
 
           <!-- Table of Contents -->
-          <nav class="toc" aria-label="Table of Contents">
+         
             <p class="toc__title">Table of Contents</p>
             <ol>
               <li><a href="#why-books">Why Beginners Should Still Read Chess Books</a></li>
@@ -837,12 +466,7 @@
               <li><strong>Helping parents choose the right book.</strong> Not every child needs the same book. A seven-year-old needs <em>Chess for Children</em>; a twelve-year-old rated 900 who plays tournament chess needs <em>Winning Chess Tactics</em> or the Steps Method. EDUCHESS coaches guide parents through this choice so children are always working with material that is challenging but not overwhelming.</li>
             </ul>
 
-            <div class="cta-box">
-              <h3>Ready to accelerate your chess learning?</h3>
-              <p>Visit EDUCHESS Academy to explore coaching programmes, get book recommendations tailored to your level, and join Trivandrum's most dedicated chess community.</p>
-              <a href="https://educhesstrivandrum.com/" class="cta-btn" rel="noopener">Explore EDUCHESS Academy →</a>
-            </div>
-          </section>
+          
 
           <!-- Section 6 – FAQ -->
           <section id="faq" aria-labelledby="faq-heading">
@@ -897,30 +521,7 @@
     </div><!-- /article-wrap -->
   </main>
 
-  <!-- ── Footer ── -->
- <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="../index.html" class="logo">EDU<span>CHESS</span></a>
-                    <p>Master the game with expert coaching from FIDE Master Harishankar MA. Personalized training for all skill levels.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                        <a href="#" aria-label="YouTube">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        </a>
-                        <a href="https://wa.me/919633896415" aria-label="WhatsApp">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
+     <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="../index.html#about">About Us</a></li>
