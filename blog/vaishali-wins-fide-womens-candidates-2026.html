@@ -199,12 +199,17 @@
     border-radius: 12px;
   }
 
-  .game-embed .cg-wrap cg-board square.light {
-  background: #dee3e6 !important;
-}
+  .game-embed .cg-wrap {
+    background: transparent !important;
+  }
 
-.game-embed .cg-wrap cg-board square.dark {
-  background: #8ca2ad !important;
+.game-embed cg-board {
+  background-color: #d8e2ea !important;
+  background-image:
+    linear-gradient(45deg, #8ca2ad 25%, transparent 25%, transparent 75%, #8ca2ad 75%, #8ca2ad),
+    linear-gradient(45deg, #8ca2ad 25%, transparent 25%, transparent 75%, #8ca2ad 75%, #8ca2ad);
+  background-position: 0 0, 32px 32px;
+  background-size: 64px 64px;
 }
 </style>
     
