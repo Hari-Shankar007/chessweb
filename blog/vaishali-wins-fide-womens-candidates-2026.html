@@ -183,6 +183,21 @@
     ]
 }
 </script>
+    <style>
+  .game-embed {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+
+  .game-embed .lpv {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+</style>
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../index.css">
@@ -477,8 +492,42 @@
 <h3>Final phase (Rounds 12–14): holding her nerve</h3>
 <p>
     Heading into the final round, Vaishali and Bibisara Assaubayeva were locked together on <strong>7.5 out of 13 rounds</strong>, with the title to be decided on the last day. Both players faced relatively experienced opponents: Vaishali had White against <strong>Kateryna Lagno</strong>, a veteran of multiple World Championship cycles; Assaubayeva faced India's own <strong>Divya Deshmukh</strong> in what would prove a volatile final-round encounter.
-</p>
-                      <iframe width="700" height="400" src="https://lichess.org/study/embed/dbveKuNW/rzj4hxn9#0" frameborder=0></iframe>
+</p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.css">
+
+<div class="game-embed">
+  <h3>Interactive board: Vaishali vs Lagno</h3>
+  <div id="vaishali-lagno-board" class="lpv"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.js"></script>
+<script>
+  const pgn = `[Event "FIDE Women's Candidates 2026"]
+[Site "Paphos, Cyprus"]
+[Date "2026.04.14"]
+[Round "14"]
+[White "Vaishali Rameshbabu"]
+[Black "Kateryna Lagno"]
+[Result "1-0"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3 O-O
+8. Qd2 Nc6 9. O-O-O d5 10. Nxc6 bxc6 11. Bc4 Be6 12. exd5 cxd5 13. Nxd5 Nxd5
+14. Bxd5 Rb8 15. Bb3 Qc8 16. Kb1 Bxb3 17. axb3 a5 18. Bd4 e5 19. Bc3 a4
+20. bxa4 Qc4 21. b3 Qxa4 22. Rhe1 Rb5 23. Re4 Qa7 24. Qe3 Qc7 25. Qd3 Qb6
+26. Bb2 Ra5 27. Bc3 Ra6 28. Qe3 Qc6 29. Rc4 Qe6 30. Qe4 Rfa8 31. Rc5 h5
+32. g4 hxg4 33. fxg4 Kh7 34. Rcd5 Qc6 35. Bb2 Ra2 36. g5 Qb6 37. Qh4+ Kg8
+38. Qe4 R8a4 39. Rd8+ Kh7 40. c4 Rxc4 41. Qxc4 Rxb2+ 42. Kxb2 e4+ 43. Kb1 Qf2
+44. R8d2 Qf5 45. Qd5 Qf3 46. Rc2 Qf4 47. Re1 e3 48. Qg2 1-0`;
+
+  LichessPgnViewer(document.getElementById('vaishali-lagno-board'), {
+    pgn: pgn,
+    showPlayers: true,
+    showClocks: false,
+    showMoves: 'bottom',
+    showControls: true,
+    scrollToMove: true,
+    keyboardToMove: true
+  });
+</script>
 <p>
     Vaishali delivered. Her Round 14 game against Lagno was described by FIDE and commentators alike as a <em>magnificent display of technique</em>. Playing with the white pieces, she built a positional advantage in the opening and middlegame, converting it into a win that required both concrete calculation and nerves of steel in a game where Lagno — a player of immense experience — naturally sought her best defensive chances. The win was complete.
 </p>
