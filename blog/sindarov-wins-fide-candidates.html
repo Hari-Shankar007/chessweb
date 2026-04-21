@@ -385,11 +385,10 @@
 <h2>Three Big Moments from Sindarov's Tournament</h2>
 
 <h3>Moment 1: Beating Praggnanandhaa in Round 3</h3>
-          <div class="game-embed">
-  
-  <div id="vaishali-lagno-board" class="lpv"></div>
+<div class="game-embed">
+  <h3>Interactive board: Praggnanandhaa vs Sindarov, Round 3</h3>
+  <div id="pragg-sindarov-board" class="lpv"></div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.js"></script>
 <script>
 const pgn = `[Event "FIDE Candidates Tournament 2026"]
@@ -414,15 +413,15 @@ const pgn = `[Event "FIDE Candidates Tournament 2026"]
 32. Nd2 Rb6 33. c5 Rxc5 34. Qb3+ Kh8 35. Qf7 Rxc2+ 36. Kb1 Rxd2 37. Rdxd2
 Bxd2+ 38. Ka2 Bxe3 39. Qxd7 Bxd4 40. Qxd4 Qf6 0-1`;
 
-  LichessPgnViewer(document.getElementById('vaishali-lagno-board'), {
-    pgn: pgn,
-    showPlayers: true,
-    showClocks: false,
-    showMoves: 'bottom',
-    showControls: true,
-    scrollToMove: true,
-    keyboardToMove: true
-  });
+LichessPgnViewer(document.getElementById('pragg-sindarov-board'), {
+  pgn: pgn,
+  showPlayers: true,
+  showClocks: false,
+  showMoves: 'bottom',
+  showControls: true,
+  scrollToMove: true,
+  keyboardToMove: true
+});
 </script>
 <p>In Round 3, Sindarov faced India's Praggnanandhaa — playing with the <strong>Black pieces</strong>, which is generally considered harder. Despite this, Sindarov played a sharp, fighting game and came away with a win. Playing Black and winning against a top player like Pragg showed just how confident and well-prepared Sindarov was. He later said these games against Praggnanandhaa were among his best of the whole tournament!</p>
 
