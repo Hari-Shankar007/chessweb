@@ -158,7 +158,110 @@
     ]
   }
   </script>
+<style>
+  .game-embed {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
 
+  .game-embed .lpv {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .game-embed .cg-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Reset weird background attempts */
+  .game-embed cg-board {
+    background: none !important;
+  }
+
+  /* Proper blue board using square layers */
+  .game-embed .cg-wrap coords,
+  .game-embed .cg-wrap cg-helper {
+    pointer-events: none;
+  }
+
+  .game-embed .cg-wrap {
+    background:
+      conic-gradient(
+        #d9e2ea 0deg 90deg,
+        #90a4b0 90deg 180deg,
+        #d9e2ea 180deg 270deg,
+        #90a4b0 270deg 360deg
+      ) 0 0 / 25% 25% repeat !important;
+  }
+  .table-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+}
+
+/* Desktop / default */
+.standings {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.standings th,
+.standings td {
+  padding: 0.9rem 1.1rem;
+  font-size: 0.95rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+/* Highlight row (Vaishali) – optional */
+.standings tr.highlight {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Mobile: shrink font + padding so it fits instead of scrolling */
+@media (max-width: 640px) {
+  .standings {
+    table-layout: fixed;      /* Force columns to share the width */
+  }
+
+  .standings th,
+  .standings td {
+    padding: 0.4rem 0.45rem;  /* Tighter rows/columns */
+    font-size: 0.78rem;       /* Smaller text */
+  }
+
+  /* Distribute column widths explicitly */
+  .standings th:nth-child(1),
+  .standings td:nth-child(1) {
+    width: 8%;                /* # */
+  }
+
+  .standings th:nth-child(2),
+  .standings td:nth-child(2) {
+    width: 42%;               /* Player */
+  }
+
+  .standings th:nth-child(3),
+  .standings td:nth-child(3) {
+    width: 22%;               /* Country */
+  }
+
+  .standings th:nth-child(4),
+  .standings td:nth-child(4) {
+    width: 28%;               /* Score */
+    text-align: right;
+  }
+}
+</style>
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../index.css">
 </head>
@@ -282,6 +385,45 @@
 <h2>Three Big Moments from Sindarov's Tournament</h2>
 
 <h3>Moment 1: Beating Praggnanandhaa in Round 3</h3>
+          <div class="game-embed">
+  
+  <div id="vaishali-lagno-board" class="lpv"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.js"></script>
+<script>
+const pgn = `[Event "FIDE Candidates Tournament 2026"]
+[Site "Paphos, Cyprus"]
+[Date "2026.03.21"]
+[Round "3"]
+[White "Praggnanandhaa R"]
+[Black "Javokhir Sindarov"]
+[WhiteElo "2741"]
+[BlackElo "2745"]
+[WhiteTitle "GM"]
+[BlackTitle "GM"]
+[Result "0-1"]
+[ECO "D37"]
+[Opening "Queen's Gambit Declined: Harrwitz Attack, Main Line"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Be7 4. Nf3 Nf6 5. Bf4 O-O 6. e3 c5 7. dxc5 Bxc5
+8. a3 Nc6 9. Qc2 Re8 10. Bg5 d4 11. Bxf6 Qxf6 12. Ne4 Qf5 13. b4 Nxb4
+14. axb4 Bxb4+ 15. Kd1 dxe3 16. Bd3 Qg6 17. fxe3 f5 18. Ng3 Bc5 19. Qc3 e5
+20. Bc2 e4 21. Nd2 Rd8 22. Kc1 Qg5 23. Re1 Qe7 24. Re2 Bb4 25. Qb2 a5
+26. Nb3 Ra6 27. Nd4 Qg5 28. Kb1 h5 29. Ka2 h4 30. Nf1 Bd7 31. Rd1 Rc8
+32. Nd2 Rb6 33. c5 Rxc5 34. Qb3+ Kh8 35. Qf7 Rxc2+ 36. Kb1 Rxd2 37. Rdxd2
+Bxd2+ 38. Ka2 Bxe3 39. Qxd7 Bxd4 40. Qxd4 Qf6 0-1`;
+
+  LichessPgnViewer(document.getElementById('vaishali-lagno-board'), {
+    pgn: pgn,
+    showPlayers: true,
+    showClocks: false,
+    showMoves: 'bottom',
+    showControls: true,
+    scrollToMove: true,
+    keyboardToMove: true
+  });
+</script>
 <p>In Round 3, Sindarov faced India's Praggnanandhaa — playing with the <strong>Black pieces</strong>, which is generally considered harder. Despite this, Sindarov played a sharp, fighting game and came away with a win. Playing Black and winning against a top player like Pragg showed just how confident and well-prepared Sindarov was. He later said these games against Praggnanandhaa were among his best of the whole tournament!</p>
 
 <h3>Moment 2: Crushing Caruana in Round 4</h3>
