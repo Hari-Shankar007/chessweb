@@ -159,112 +159,21 @@
   }
   </script>
 <style>
-  .game-embed {
-    width: 100%;
-    max-width: 100%;
-    margin: 2rem 0;
-    overflow: hidden;
-  }
-
-  .game-embed .lpv {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-
-  .game-embed .cg-wrap {
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  /* Reset weird background attempts */
-  .game-embed cg-board {
-    background: none !important;
-  }
-
-  /* Proper blue board using square layers */
-  .game-embed .cg-wrap coords,
-  .game-embed .cg-wrap cg-helper {
-    pointer-events: none;
-  }
-
-  .game-embed .cg-wrap {
-    background:
-      conic-gradient(
-        #d9e2ea 0deg 90deg,
-        #90a4b0 90deg 180deg,
-        #d9e2ea 180deg 270deg,
-        #90a4b0 270deg 360deg
-      ) 0 0 / 25% 25% repeat !important;
-  }
-  .table-wrap {
+ .game-embed {
   width: 100%;
   max-width: 100%;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.game-embed .lpv {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   border-radius: 12px;
 }
-
-/* Desktop / default */
-.standings {
-  width: 100%;
-  max-width: 100%;
-  border-collapse: collapse;
-  table-layout: auto;
-}
-
-.standings th,
-.standings td {
-  padding: 0.9rem 1.1rem;
-  font-size: 0.95rem;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  vertical-align: top;
-}
-
-/* Highlight row (Vaishali) – optional */
-.standings tr.highlight {
-  background-color: rgba(255, 255, 255, 0.04);
-}
-
-/* Mobile: shrink font + padding so it fits instead of scrolling */
-@media (max-width: 640px) {
-  .standings {
-    table-layout: fixed;      /* Force columns to share the width */
-  }
-
-  .standings th,
-  .standings td {
-    padding: 0.4rem 0.45rem;  /* Tighter rows/columns */
-    font-size: 0.78rem;       /* Smaller text */
-  }
-
-  /* Distribute column widths explicitly */
-  .standings th:nth-child(1),
-  .standings td:nth-child(1) {
-    width: 8%;                /* # */
-  }
-
-  .standings th:nth-child(2),
-  .standings td:nth-child(2) {
-    width: 42%;               /* Player */
-  }
-
-  .standings th:nth-child(3),
-  .standings td:nth-child(3) {
-    width: 22%;               /* Country */
-  }
-
-  .standings th:nth-child(4),
-  .standings td:nth-child(4) {
-    width: 28%;               /* Score */
-    text-align: right;
-  }
-}
-  src="https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.js">
 </style>
-    <!-- Lichess PGN Viewer CSS -->
-  //cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.7/demo/lichess-pgn-viewer.css">
+  
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../index.css">
