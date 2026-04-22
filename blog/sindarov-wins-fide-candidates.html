@@ -346,6 +346,14 @@ LichessPgnViewer(document.getElementById('pragg-sindarov-board'), {
 
 <h3>Moment 3: Staying Calm to Clinch the Title</h3>
 <p>In Round 13, Sindarov only needed a <strong>draw</strong> to mathematically win the tournament. His opponent, Anish Giri, tried hard to press for a win. But Sindarov defended with great patience and skill, simplified the position into a rook endgame, and held the draw without any real trouble. It was a masterclass in <strong>staying calm under pressure</strong>. He played with nearly perfect accuracy in that game — showing that sometimes, defending well is just as powerful as attacking!</p>
+          <div class="game-embed">
+            <h3>Interactive board: Sindarov vs Caruana, Round 4</h3>
+            <div id="sindarov-caruana-board" class="lpv"></div>
+            </div>
+          <script>
+            const pgn2 = `[Event "FIDE Candidates Tournament 2026"] [Site "Paphos, Cyprus"] [Date "2026.03.21"] [Round "4"] [White "Sindarov, Javokhir"] [Black "Caruana, Fabiano"] [WhiteElo "2745"] [BlackElo "2795"] [WhiteTitle "GM"] [BlackTitle "GM"] [Result "1-0"] [ECO "D26"] [Opening "Queen's Gambit Accepted: Classical Defense, Steinitz Variation, Development Variation"] 1. d4 d5 2. c4 e6 3. Nf3 dxc4 4. e3 Nf6 5. Bxc4 c5 6. O-O Nc6 7. Qe2 a6 8. Nc3 b5 9. Bd3 Bb7 10. a4 b4 11. Ne4 Na5 12. Nxf6+ gxf6 13. dxc5 Nb3 14. c6 Bxc6 15. Nd4 Nxd4 16. exd4 Rg8 17. g3 f5 18. Bc4 Rg4 19. Be3 Bd5 20. Rac1 Be7 21. Bxa6 Kf8 22. Bb5 Bf6 23. Rfd1 Kg7 24. Bc6 Ra5 25. Bxd5 Rxd5 26. Rc5 Rd7 27. d5 exd5 28. Qf3 Bxb2 29. Rcxd5 Rxd5 30. Rxd5 Qe8 31. Rxf5 Rg6 32. h4 Bc3 33. h5 Ra6 34. Qg4+ Kh8 35. Bd4+ f6 36. Rc5 1-0`;
+            LichessPgnViewer(document.getElementById('sindarov-caruana-board'), { pgn: pgn2, showPlayers: true, showClocks: false, showMoves: 'bottom', showControls: true, scrollToMove: true, keyboardToMove: true, theme: 'blue' });
+            </script>
 
 
 <h2>Why Is Sindarov's Win So Special?</h2>
